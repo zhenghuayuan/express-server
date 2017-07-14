@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>标题</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/vue.min.js"></script>
+	<style>
+
+	</style>
+</head>
+<body>
+	<div class="wrap" id="wrap">
+		<input type="submit" value="刷新serverToken" @click="getToken">
+		<input type="submit" value="自定义菜单" @click="setMenu">
+	</div>
+	<script>
+		new Vue({
+			el: "#wrap",
+			data: {
+
+			},
+			methods: {
+				getToken(){
+					$.ajax({
+						url: "/weixin/getAccessToken",
+						type: "get",
+						data: "",
+						dataType: "json",
+						success: function(data){
+							console.log(data)
+						},
+						error: function(e){
+							console.log(e)
+						}
+					})
+				},
+				setMenu(){
+					$.ajax({
+						url: "/weixin/createMenu",
+						type: "get",
+						data: "",
+						dataType: "json",
+						success: function(data){
+							console.log(data)
+						},
+						error: function(e){
+							console.log(e)
+						}
+					})
+				}
+			}
+
+		})
+	</script>
+</body>
+</html>
